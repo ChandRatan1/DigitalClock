@@ -1,0 +1,72 @@
+/* clock.css */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #282c34;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+  }
+  
+  .clock-container {
+    position: relative;
+    background: #3a3f47;
+    border-radius: 50%;
+    padding: 40px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #clock {
+    font-size: 48px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  #ampm {
+    font-size: 24px;
+    position: relative;
+    z-index: 1;
+    margin-top: 10px;
+  }
+  
+  .clock-container::before,
+  .clock-container::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    border: 10px solid transparent;
+    z-index: 0;
+  }
+  
+  .clock-container::before {
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-top-color: #ff3e3e; /* Seconds ring */
+    animation: spin-seconds 60s linear infinite;
+  }
+  
+  .clock-container::after {
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    border-top-color: #fffb3e; /* Minutes ring */
+    animation: spin-minutes 3600s linear infinite;
+  }
+  
+  .clock-container::nth-of-type(3)::before {
+    top: -30px;
+    left: -30px;
+    right: -30px;
+    bottom: -30px;
+    border-top-color: #3e9eff; /* Hours ring */
+    animation: spin-hours 43200s linear infinite
+  
